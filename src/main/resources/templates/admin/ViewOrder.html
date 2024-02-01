@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorator="adminhome">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="adminContent">
+
+		<div class="panel panel-primary">
+			<div class="alert alert-info">
+				<span>Book Order Details</span>
+			</div>
+			<div class="panel-body">
+				<form th:action="@{/order/search}">
+					<div class="row col-md-12">
+						<div class="col-md-7 form-group">
+							<input type="text" name="bookname" id="bookname"
+								class="form-control" placeholder="Enter bookname">
+						</div>
+						<div class="col-md-3">
+							<input type="submit" class="btn btn-info form-control"
+								value="Search">
+						</div>
+					
+
+						<div class="row">
+							<div class="col-md-12">
+								<label class="col-md-5">Total number of orders:</label>
+								<div class="col-md-3">
+									<p th:text="${count}"></p>
+
+								</div>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label class="col-md-5">Orders Available:</label>
+								<div class="col-md-3">
+									<p th:text="${avail}"></p>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+		</div>
+
+
+
+
+
+
+
+
+		<div class="panel panel-warning">
+			<div class="alert alert-success">
+				<span class="lead">Book Order List</span>
+			</div>
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-hover table-bordered">
+						<thead>
+							<tr>
+								<th>User Id</th>
+								<th>User Name</th>
+								<th>Book Name</th>
+								<th>Author Name</th>
+								<th>IssueDate</th>
+								<th>Expiry Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="order:${order}">
+								<td th:text="${order.userid}"></td>
+								<td th:text="${order.username}"></td>
+
+								<td th:text="${order.bookname}"></td>
+								<td th:text="${order.authorname}"></td>
+
+								<td th:text="${order.issuedate}"></td>
+								<td th:text="${order.expirydate}"></td>
+						</tbody>
+					</table>
+
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+</body>
+</html>

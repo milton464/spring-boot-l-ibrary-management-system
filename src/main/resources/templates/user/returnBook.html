@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorate="userhome">
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+.form-actions{
+
+margin-top: 20px;
+margin-left:25px; 
+}
+
+
+</style>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="panel panel-primary">
+			<div class="alert alert-info">
+				<span class="lead"><u>Return Book</u> </span>
+
+			</div>
+
+
+			<div class="panel-body">
+			<form th:action="@{/user/return}">
+				<div class="row col-md-12">
+					<label class="col-md-3">User Id:</label>
+					<div class="col-md-7"><p th:text="${id}"></p></div>
+
+					<div class="row col-md-12">
+						<label class="col-md-3">Book Name:</label>
+						<div class="col-md-7"><p th:text="${bookname}"></p></div>
+
+					</div>
+
+					<div class="row col-md-12">
+						<label class="col-md-3">Author Name:</label>
+						<div class="col-md-7"><p th:text="${authorname}"></p> </div>
+
+					</div>
+
+
+					<div class="row" style="margin-top: 15px;">
+						<div class="form-actions">
+							<input type="submit" value="Return Book" class="btn btn-warning">
+						</div>
+
+					</div>
+
+				</div>
+				</form>
+			</div>
+			
+			
+		</div>
+	</div>
+</body>
+</html>

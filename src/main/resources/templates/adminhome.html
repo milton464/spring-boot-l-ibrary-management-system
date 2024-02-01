@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorator="layout">
+<head>
+<title>Admin Home</title>
+<link rel="stylesheet"
+	th:href="@{/assets/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/assets/font-awesome-4.5.0/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/assets/css/styles.css}" />
+<style type="text/css">
+fieldset {
+	border: solid 1px #DD9120;
+	border-radius: 10px;
+	height: 450px;
+}
+
+legend {
+	border: solid 1px #DD9120;
+	border-radius: 10px;
+	text-transform: lowercase;
+	text-align: center;
+}
+</style>
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!--  <p>Welcome Administrator(<span sec:authentication="principal.username">Admin</span>)</p>
+         <p sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></p>-->
+		<p style="text-align: center;" class="alert alert-success"><marquee direction="left">
+			Welcome <span sec:authentication="principal.username">User</span></marquee>
+		</p>
+		<div class="row">
+
+			<div class="col-md-3">
+				<div class="panel panel-info">
+					<div class="alert alert-warning">
+						<span class="lead" style="font-size: 16px; font: italic-bold;">
+							Select options to perform actions</span>
+					</div>
+					<div class="panel-body">
+						<ul class="list-group">
+
+							<li class="list-group-item list-group-item-danger"><a
+								style="margin-left: 35px;" class="btn btn-primary"
+								th:href="@{/admin/addBook}">Add Book</a></li>
+							<li class="list-group-item list-group-item-success"><a
+								style="margin-left: 35px;" class="btn btn-warning"
+								th:href="@{/admin/searchBook}">Search Book</a></li>
+
+							<li class="list-group-item list-group-item-warning"><a
+								style="margin-left: 35px;" class="btn btn-info"
+								th:href="@{/admin/updateBook}"> Update Book</a></li>
+							<li class="list-group-item list-group-item-info"><a
+								th:href="@{/admin/view}" style="margin-left: 35px;"
+								class="btn btn-success">View Order</a></li>
+
+
+						
+
+
+						</ul>
+
+					</div>
+				</div>
+
+
+
+
+
+
+			</div>
+
+
+			<div class="col-md-8" style="margin-left: 2px;">
+				<div layout:fragment="adminContent"></div>
+			</div>
+
+
+
+
+		</div>
+		
+		</div>
+</body>
+</html>

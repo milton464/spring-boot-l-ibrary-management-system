@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorate="adminhome">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="adminContent">
+
+		<div class="panel panel-default">
+
+			<div class="alert alert-info">
+				<span class="lead">Add Book</span>
+				
+			</div>
+
+			<div class="panel-body">
+				<div class="container">
+					<form th:action="@{/addbook}" th:object="${book}" method="post">
+					<div class="row">
+							<div class="form-group col-md-8">
+
+								<label class="control-lable col-md-2" for="id">Book
+									Id</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" th:field="*{id}"
+										placeholder="enter book id" id="id" name="id">
+									
+								</div>
+								<div class="text text-danger"
+										th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+
+								<label class="control-lable col-md-2" for="title">Book
+									Title</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" th:field="*{title}"
+										placeholder="enter book title" id="title" name="title">
+									
+								</div>
+								<div class="text text-danger"
+										th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-md-8">
+
+								<label class="control-lable col-md-2" for="author">Book
+									Author</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" th:field="*{author}"
+										placeholder="enter book author" id="author" name="author">
+									<div class="text text-warning"
+										th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="form-group col-md-8">
+
+								<label class="control-lable col-md-2" for="quantity">Quantity</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" th:field="*{quantity}"
+										placeholder="enter book quantity" id="quantity"
+										name="quantity">
+									<div class="text text-info"
+										th:if="${#fields.hasErrors('quantity')}"
+										th:errors="*{quantity}"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-actions floatright">
+								<input type="submit" value="Add Book" class="btn btn-warning">
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+
+
+			</div>
+
+
+
+
+		</div>
+
+
+
+	</div>
+</body>
+</html>

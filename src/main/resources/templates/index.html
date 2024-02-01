@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorator="layout">
+
+<head>
+<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0; 
+		font-family: sans-serif;
+		//background: #DD9120;
+		
+	}
+	.box{
+position: absolute;
+top: 30%;
+left: 50%;
+transform: translate(-50%,-50%);
+width: 1000px;
+height: 150px;
+}
+
+.box .face{
+	position: absolute;
+	width: 500px;
+	height: 100px;
+	font-size: 1em;
+	text-align: center;
+	line-height: 90px;
+	overflow: hidden;
+}
+.box .face span{
+	width: 100%;
+	height: 100%;
+	display: block;
+	transition: .5s;
+	overflow: hidden;
+}
+.box .face.face1{
+	//background: #d80045;
+	background:windowframe;
+	color: green;
+	transform-origin: left;
+	left: 0;
+	transform: perspective(800px) rotateY(-64.02deg);
+}
+.box .face.face2{
+	//background: #f1004d;
+	background:windowframe;
+	color: windowtext;
+	transform-origin: right;
+	right: 0;
+	transform: perspective(800px) rotateY(64.02deg);
+}
+
+.box .face.face1 span{
+	position: absolute;
+	animation: animate1 10s linear infinite;
+}
+@keyframes animate1{
+0%{
+	left: 200%
+}
+100%{
+	left: -100%
+}
+}
+
+
+.box .face.face2 span{
+	position: absolute;
+	animation: animate2 10s linear infinite;
+}
+@keyframes animate2{
+0%{
+	left: 100%
+}
+100%{
+	left: -200%
+}
+}
+
+</style>
+
+
+</head>
+<body class="alert alert-success">
+	<div layout:fragment="content">
+
+
+		
+<div class="box">
+	<div class="face face1"><span>WELCOME TO LIBRARY MANAGEMENT SYSTEM </span></div>
+	<div class="face face2"><span>WELCOME TO LIBRARY MANAGEMENT SYSTEM</span></div>
+
+</div>
+
+
+		<div class="panel panel-danger" style="margin-top: 300px;">
+
+			<div class="alert alert-danger">
+				<span class="lead">Library Management System</span>
+			</div>
+
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="alert alert-warning">
+								<span class="lead">About LMS</span>
+							</div>
+							<div class="panel body">
+							The project’s main aim is to build a management system more like a website which.....
+								<button type="button" class="btn btn-info" data-toggle="modal"
+									data-target="#exampleModal">see details</button>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="alert alert-warning">
+								<span class="lead">Admin</span>
+							</div>
+							<div class="panel body">
+								In this library management system admin can perform the
+								following operations after login in....
+								<button type="button" class="btn btn-info" data-toggle="modal"
+									data-target="#ModalAdmin">see details</button>
+
+							</div>
+						</div>
+
+
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="alert alert-warning">
+								<span class="lead">User</span>
+							</div>
+							<div class="panel body">
+								In this library management system user can perform the following
+								operations after login...
+								<button type="button" class="btn btn-info" data-toggle="modal"
+									data-target="#ModalUser">see details</button>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+
+		<!-- Modal for lms-->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog " role="document">
+				<div class="modal-content">
+
+					<div class="modal-body alert alert-warning">
+						About LMS<br>
+
+					</div>
+					<p>The project’s main aim is to build a management system more like a website which...</p>
+					<ol>
+					<li>Can create a computerized management system for a library</li>
+					<li>Has the capability to issue books</li>
+					<li>Has the capability to return books</li>
+					<li style="color: black;">Has an administrator account</li>
+					<li>Can manage book details through administrator account</li>
+					<li>Tracks the books that users have issued</li>
+					<li>Keeps the databases correct and up-to-date</li>
+					<li>Can store all the book and user data in a proper manner</li>
+					<li style="color: black;">Has a user account</li>
+					<li style="color: black;">User can not access the admin section but admin can access the user section</li>
+					</ol>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Modal for admin-->
+		<div class="modal fade" id="ModalAdmin" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog " role="document">
+				<div class="modal-content">
+
+					<div class="modal-body alert alert-warning">
+						Admin<br>
+
+					</div>
+					<p>In this library management system admin can perform the
+						following operations after login...</p>
+					<ul>
+						<li>Add Books</li>
+						<li>Search Books</li>
+						<li>Update or Edit Book Details</li>
+						<li>Delete Books</li>
+						<li>View Order Details</li>
+					</ul>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Modal for user-->
+		<div class="modal fade" id="ModalUser" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog " role="document">
+				<div class="modal-content">
+
+					<div class="modal-body alert alert-warning">
+						User<br>
+
+					</div>
+					<p>In this library management system user can perform the
+						following operations after login...</p>
+					<ul>
+						<li>See All Books</li>
+						<li>Place Order for Books</li>
+						<li>Return Books</li>
+						<li>View Date Info</li>
+						<li>See Delay date info and can see fine</li>
+						
+					</ul>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
+

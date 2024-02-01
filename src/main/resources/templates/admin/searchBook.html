@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorator="adminhome">
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+td {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div layout:fragment="adminContent">
+
+		<div class="panel panel-default">
+
+			<div class="row">
+				<div class="form-group col-md-8">
+					<form th:action="@{/search}" method="get">
+						<div class="form-group col-md-10">
+							<input type="text" class="form-control" name="title"
+								placeholder="search by title">
+						</div>
+						<div class="col-md-2">
+							<input type="submit" class="btn btn-primary" value="serach">
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+			<div class="panel panel-boby">
+				<div class="alert alert-warning">
+					<span class="lead">List of Books</span>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-hover table-bordered">
+						<thead>
+							<tr>
+								<th>Book Id</th>
+								<th>Book Title</th>
+								<th>Author</th>
+								<th>Quantity</th>
+								
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="book:${books}">
+								<td th:text="${book.id}"></td>
+								<td th:text="${book.title}"></td>
+								<td th:text="${book.author}"></td>
+								<td th:text="${book.quantity}"></td>
+								
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorate="~{layout}">
+<head>
+<title>User Home</title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+
+
+		<p style="text-align: center;" class="alert alert-success">
+			<marquee direction="left">
+				Welcome <span sec:authentication="principal.username">User</span>
+
+			</marquee>
+		</p>
+		<!--
+  <div sec:authorize="hasRole('ROLE_ADMIN')">
+   <h3>You will see this only if you are ADMIN</h3>
+   <p>
+    <a th:href="@{/admin/home}">Admin Home</a>
+   </p>
+  </div>
+  
+  -->
+		<div class="row">
+
+			<div class="col-md-3">
+				<div class="panel panel-info">
+					<div class="alert alert-warning">
+						<span class="lead" style="font-size: 16px; font: italic-bold;">
+							Select options to perform actions</span>
+					</div>
+					<div class="panel-body">
+						<ul class="list-group">
+
+							<li class="list-group-item list-group-item-danger"><a
+								style="margin-left: 35px;" class="btn btn-primary"
+								th:href="@{/user/info}">User Info</a></li>
+								
+							<li class="list-group-item list-group-item-danger"><a
+								style="margin-left: 35px;" class="btn btn-primary"
+								th:href="@{/user/booklist}">All Books</a></li>
+
+							<li class="list-group-item list-group-item-success"><a
+								style="margin-left: 35px;" class="btn btn-warning"
+								th:href="@{/user/viewDateInfo}">View Date Info</a></li>
+
+
+							<li class="list-group-item list-group-item-warning"><a
+								style="margin-left: 35px;" class="btn btn-info"
+								th:href="@{/user/returnBook}">Return Book</a></li>
+
+
+
+
+						</ul>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-9">
+
+				<div layout:fragment="userContent"></div>
+			</div>
+
+		</div>
+
+
+
+
+
+	</div>
+</body>
+</html>

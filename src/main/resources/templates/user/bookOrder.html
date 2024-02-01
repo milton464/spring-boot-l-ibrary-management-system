@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorate="userhome">
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+.form-actions {
+	text-align: center;
+}
+</style>
+
+
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="panel panel-primary">
+			<div class="alert alert-success">
+				<span class="lead">Place Order</span>
+
+			</div>
+
+			<div class="panel-body">
+				<form th:action="@{/orderBook}" th:object="${order}" method="post">
+
+
+
+					<div class="alert alert-warning">
+						<div class="row">
+							<div class="col-md-10 form-group">
+								<label class="col-md-3 control-lable" for="bookname">Book
+									Name</label>
+								<div class="col-md-7">
+									<input type="text"  name="bookname"
+										th:value="${bookname}" 
+										class="form-control">
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-10 form-group">
+								<label class="col-md-3 control-lable" for="authorname">Author
+									Name</label>
+								<div class="col-md-7">
+									<input type="text" id="authorname" name="authorname"
+										th:value="${authorname}" 
+										class="form-control">
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+
+
+					<div class="alert alert-success">
+						<div class="row">
+							<div class="col-md-10 form-group">
+								<label class="col-md-3 control-lable" for="userid">User
+									Id </label>
+								<div class="col-md-7">
+									<input type="text" id="userid" name="userid" th:value="${id}"
+										 class="form-control">
+								</div>
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-md-10 form-group">
+								<label class="col-md-3 control-lable" for="username">User
+									Name </label>
+								<div class="col-md-7">
+									<input type="text" id="username" name="username" th:value="${name}"
+										 class="form-control">
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+
+
+
+
+					<div class="alert alert-danger">
+						<div class="row">
+							<div class="col-md-10 form-group">
+								<label class="col-md-3 control-lable" for="issuedate">Issue
+									Date </label>
+								<div class="col-md-7">
+									<input type="text" id="issuedate" name="issuedate"
+										 th:value="${issuedate}"
+										class="form-control">
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="row">
+							<div class="col-md-10 form-group">
+								<label class="col-md-3 control-lable" for="expirydate">Expiry
+									Date </label>
+								<div class="col-md-7">
+									<input type="text" id="expirydate" name="expirydate"
+										 th:value="${expirydate}"
+										class="form-control">
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-actions">
+							<input type="submit" value="Place Order" class="btn btn-warning">
+						</div>
+
+					</div>
+
+
+
+
+				</form>
+
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+</body>
+</html>

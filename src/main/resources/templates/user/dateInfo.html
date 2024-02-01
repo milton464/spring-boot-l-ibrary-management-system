@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorate="userhome">
+<head>
+<meta charset="ISO-8859-1">
+
+</head>
+<body>
+	<div layout:fragment="userContent">
+
+		<div class="panel panel-success">
+			<div class="alert alert-success">
+				<span class="lead">Fine Details</span>
+
+			</div>
+
+			<div class="panel-body">
+				<div class="col-md-12">
+					<form th:action="@{/searchOrder}">
+						<div class="row col-md-10">
+							<label class="col-md-2 control-lable">User Id:</label>
+
+							<div class="col-md-6 form-group">
+								<input type="text" name="userid" class="form-control"
+									th:value="${id}">
+							</div>
+							<div class="col-md-2">
+								<input type="submit" class="btn btn-primary" value="serach">
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+				<div class="row col-md-10">
+					<div class="alert alert-info col-md-12">
+
+						<div class="row col-md-10">
+							<label class="col-md-3">Name:</label>
+							<div class="col-md-7">
+								<p th:text="${name}">
+							</div>
+						</div>
+						<div class="row col-md-10">
+							<label class="col-md-3">Issue Date:</label>
+							<div class="col-md-7">
+								<p th:text="${issue}">
+							</div>
+						</div>
+
+						<div class="row col-md-10">
+							<label class="col-md-3">Expiry Date:</label>
+							<div class="col-md-7">
+								<p th:text="${expiry}">
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+
+				<div class="row col-md-10">
+					<button type="button" class="btn btn-warning" data-toggle="modal"
+						data-target="#fine">Calculate Fine</button>
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+
+		<!-- Modal for calculating fine-->
+		<div class="modal fade" id="fine" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog " role="document">
+				<div class="modal-content">
+
+					<div class="modal-body alert alert-danger">
+						Calculate Fine<br>
+
+					</div>
+					<div class="alert alert-success col-md-12">
+						<div class="row">
+							<div class="col-md-10">
+								<label class="col-md-3">Late by:</label>
+								<div class="col-md-3">
+									<p th:text="${days}"></p>
+								</div>
+								<div class="col-md-2">
+									<p>Days</p>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col-md-10">
+								<label class="col-md-3">Total Fine:</label>
+								<div class="col-md-3">
+									<p th:text="${fine}"></p>
+									
+								</div>
+								<div class="col-md-2">
+										BDT
+									</div>
+							</div>
+						</div>
+
+					</div>
+
+
+
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>

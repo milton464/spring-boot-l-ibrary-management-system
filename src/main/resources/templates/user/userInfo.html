@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorate="userhome">
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+th {
+	text-align: center;
+}
+
+td {
+	text-align: center;
+}
+
+.form-actions {
+	margin-left: 100px;
+}
+</style>
+</head>
+<body>
+	<div layout:fragment="userContent">
+		<div class="panel panel-primary">
+			<div class="alert alert-danger">
+				<span class="lead">User Information</span>
+			</div>
+
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-hover table-bordered">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Password</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:object="${user}">
+								<td th:text="${user.id}"></td>
+								<td th:text="${user.name}"></td>
+								<td th:text="${user.email}"></td>
+								<td th:text="${user.password}"></td>
+								<td><a class="btn btn-info">
+								<span
+										class="glyphicon glyphicon-edit" data-toggle="modal"
+										data-target="#info"></span> </a>
+								</td>
+								<td><a class="btn btn-danger">
+								<span data-toggle="modal"
+										data-target="#delete"
+										class="glyphicon glyphicon-trash"></span> </a>
+								</td>
+
+
+							</tr>
+						</tbody>
+
+					</table>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+
+		<!-- Modal for edit user info-->
+		<div class="modal fade" id="info" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog " role="document">
+				<div class="modal-content">
+
+					<div class="modal-body alert alert-danger">
+						Update Information<br>
+
+					</div>
+
+					<form th:action="@{/user/update}" th:object="${user}" method="post">
+						<div class="alert alert-info">
+							<div class="row">
+								<div class="form-group col-md-8">
+
+									<label class="control-lable col-md-2" for="id"> Id</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control" id="id" name="id"
+											th:field="*{id}">
+
+									</div>
+
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-8">
+
+									<label class="control-lable col-md-2" for="name"> Name</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control" id="name" name="name"
+											th:field="*{name}">
+
+									</div>
+
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-8">
+
+									<label class="control-lable col-md-2" for="email">
+										Email</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control" id="email"
+											name="email" th:field="*{email}">
+
+									</div>
+
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-8">
+
+									<label class="control-lable col-md-2" for="password">
+										Password</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control" id="password"
+											name="password" th:field="*{password}">
+
+									</div>
+
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="form-actions">
+									<input type="submit" value="Update Info"
+										class="btn btn-warning">
+								</div>
+							</div>
+						</div>
+
+
+					</form>
+
+
+
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for admin-->
+		<div class="modal fade" id="delete" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog " role="document">
+				<div class="modal-content">
+
+					<div class="modal-body alert alert-danger">
+						Delete User<br>
+
+					</div>
+					<div class="modal-body">
+					<h3>Are you sure want to delete this user</h3>
+					
+					</div>
+				
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+							<a type="" class="btn btn-danger">Yes</a>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	</div>
+</body>
+</html>

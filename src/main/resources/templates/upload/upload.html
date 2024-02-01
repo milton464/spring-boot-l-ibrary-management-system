@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+	layout:decorator="layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- <div layout:fragment="content"> -->
+<div th:fragment="upload">
+<div th:if=${msg}>
+<span th:text=${msg}></span>
+</div>
+
+
+<form th:action="@{/admin/upload}" method="post" enctype="multipart/form-data">
+<input type="file" name="files" multiple="multiple">
+<input type="submit" value="Upload">
+
+</form>
+</div>
+
+<!-- </div> -->
+</body>
+</html>
