@@ -1,4 +1,4 @@
-# spring-boot-l-ibrary-management-system
+# spring-boot-library-management-system
 
 # Project Title: Spring Boot Library Management System
 
